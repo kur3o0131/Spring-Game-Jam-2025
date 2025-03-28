@@ -4,6 +4,10 @@ using UnityEngine.Tilemaps;
 
 public class PlayerCntrl : MonoBehaviour
 {
+    public Transform aim;
+    bool isWalking = false;
+
+
     public Animator anim;
 
     public float moveSpeed;
@@ -32,6 +36,12 @@ public class PlayerCntrl : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = input * moveSpeed;
+
+        if(isWalking)
+        {
+            Vector3 vector3 = Vector3.left * x + Vector3.down * y;
+            aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
+        }
     }
 
     private void GetInput()
@@ -48,10 +58,12 @@ public class PlayerCntrl : MonoBehaviour
         if (input.magnitude > 0.1f)
         {
             moving = true;
+            isWalking = true;
         }
         else
         {
             moving = false;
+            isWalking = false;
         }
         if (moving)
         {
