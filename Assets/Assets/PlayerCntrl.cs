@@ -4,9 +4,17 @@ using UnityEngine.Tilemaps;
 
 public class PlayerCntrl : MonoBehaviour
 {
+    public HealthUI healthUI;
+    public int maxHearts = 3;
+    private int currentHearts;
+
+    private bool canTakeDamage = true;
+    public float damageCooldown = 1f;
+
+    private GameManager gm;
+
     public Transform aim;
     bool isWalking = false;
-
 
     public Animator anim;
 
@@ -23,7 +31,11 @@ public class PlayerCntrl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentHearts = maxHearts;
+        healthUI.SetHearts(currentHearts);
         rb = GetComponent<Rigidbody2D>();
+        gm = Object.FindFirstObjectByType<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -71,5 +83,35 @@ public class PlayerCntrl : MonoBehaviour
             anim.SetFloat("Y", y);
         }
         anim.SetBool("Moving", moving);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(1);
+        }
+    }
+    private void TakeDamage(int damage)
+    {
+        if (!canTakeDamage) return;
+
+        canTakeDamage = false;
+        currentHearts -= damage;
+        currentHearts = Mathf.Max(0, currentHearts);
+        healthUI.SetHearts(currentHearts);
+
+        if (currentHearts <= 0)
+        {
+            gm.GameOver();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Invoke(nameof(ResetDamageCooldown), damageCooldown);
+        }
+    }
+    private void ResetDamageCooldown()
+    {
+        canTakeDamage = true;
     }
 }
