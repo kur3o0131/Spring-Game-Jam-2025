@@ -91,7 +91,7 @@ public class PlayerCntrl : MonoBehaviour
             TakeDamage(1);
         }
     }
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (!canTakeDamage) return;
 
