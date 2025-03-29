@@ -42,7 +42,7 @@ public class attack : MonoBehaviour
         }
     }
 
-    void RotateAimToMouse() // <-- new method
+    void RotateAimToMouse()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = (mousePos - Aim.position).normalized;
@@ -54,15 +54,29 @@ public class attack : MonoBehaviour
         if (shootTimer > shootCooldown)
         {
             shootTimer = 0f;
+
+            // Position the bullet slightly in front of the player
             Vector3 spawnPos = Aim.position + Aim.up * 0.6f;
             GameObject intBullet = Instantiate(bullet, spawnPos, Quaternion.identity);
+
             Rigidbody2D rb = intBullet.GetComponent<Rigidbody2D>();
+
             if (rb != null)
             {
-                rb.linearVelocity = Vector2.zero;
-                rb.AddForce(Aim.up * fireforce, ForceMode2D.Impulse);
+                // Set the Rigidbody2D to Kinematic (no physics influence)
+                rb.bodyType = RigidbodyType2D.Kinematic;
+
+                // Get the mouse position in world space
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                // Calculate direction towards the mouse (normalize it so it's a unit vector)
+                Vector2 direction = (mousePos - Aim.position).normalized;
+
+                // Apply the linearVelocity for constant speed
+                rb.linearVelocity = direction * fireforce;
             }
 
+            // Destroy the bullet after 3 seconds
             Destroy(intBullet, 3f);
         }
     }
