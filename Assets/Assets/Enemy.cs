@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     float health, maxHealth = 3f;
 
+    public Animator anim;
+
     private void Awake()
     {
        rb = GetComponent<Rigidbody2D>();
@@ -20,6 +22,9 @@ public class Enemy : MonoBehaviour
     {
         target = GameObject.Find("Player").transform;
         health = maxHealth;
+
+        if (anim == null)
+            anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,8 +35,10 @@ public class Enemy : MonoBehaviour
             Vector3 direction = (target.position - transform.position).normalized;
             moveDirection = direction;
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            rb.rotation = angle;
+            // set animation parameters
+            anim.SetFloat("X", direction.x);
+            anim.SetFloat("Y", direction.y);
+            anim.SetBool("Moving", direction.magnitude > 0.1f);
         }
     }
 
