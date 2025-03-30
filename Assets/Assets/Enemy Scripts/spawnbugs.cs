@@ -26,10 +26,10 @@ public class spawnbugs : MonoBehaviour
     public int current_level = 1;
     public static int current_level_static = 1;
 
+
     private float timer = 0f;
     private int waveNumber = 1;
     private bool firstWaveDone = false;
-
     private int currentEnemyCount = 0;
     private int totalEnemiesSpawned = 0;
     private int enemiesKilled = 0;
@@ -122,7 +122,17 @@ public class spawnbugs : MonoBehaviour
         yield return new WaitForSeconds(2f);
         int next_level = current_level + 1;
         current_level_static = next_level;
-        string next_scene = "level" + next_level;
-        SceneManager.LoadScene(next_scene);
+
+        if (current_level >= 4)
+        {
+            // transition to the end scene
+            SceneManager.LoadScene("end");
+        }
+        else
+        {
+            // go to next level
+            string next_scene = "level" + next_level;
+            SceneManager.LoadScene(next_scene);
+        }
     }
 }
