@@ -11,6 +11,12 @@ public class Projectile : MonoBehaviour
         direction = dir.normalized;
     }
 
+    void Start()
+    {
+        // Auto-destroy after 3 seconds
+        Destroy(gameObject, 3f);
+    }
+
     void Update()
     {
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
@@ -23,16 +29,14 @@ public class Projectile : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            // Get the PlayerCntrl component on the player
             PlayerCntrl player = collision.GetComponent<PlayerCntrl>();
             if (player != null)
             {
-                player.TakeDamage(1);  // Apply damage to the player
+                player.TakeDamage(1);
             }
-            Destroy(gameObject);  // Destroy the projectile
+            Destroy(gameObject);
         }
 
-        // Optional: Destroy on walls or anything else (like obstacles)
         if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
             Destroy(gameObject);

@@ -28,6 +28,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
+        FindFirstObjectByType<EnemySpawner>()?.OnEnemyDeath();
         Destroy(gameObject);
     }
 }

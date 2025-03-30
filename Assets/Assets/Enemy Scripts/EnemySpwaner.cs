@@ -1,80 +1,86 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;  // Array to hold different enemy prefabs
+    public TextMeshProUGUI enemyCounterText;
+
+    public GameObject[] enemyPrefabs;
     public float minRadius = 8f;
     public float maxRadius = 10f;
 
     public float timeBetweenWaves = 5f;
     public int baseEnemiesPerWave = 3;
-    public int maxEnemies = 50;  // Maximum total number of enemies to spawn in the scene
+    public int maxActiveEnemies = 50;      // How many enemies can be alive at once
+    public int maxTotalSpawns = 200;       // Total enemies this spawner will ever produce
 
-    public LevelUI levelUI; // Drag in inspector
+    public LevelUI levelUI;
 
     private float timer = 0f;
     private int waveNumber = 1;
     private bool firstWaveDone = false;
 
-    private int currentEnemyCount = 0;  // Track how many enemies are in the scene
+    private int currentEnemyCount = 0;     // Enemies currently in scene
+    private int totalEnemiesSpawned = 0;   // All enemies spawned since start
+    private int enemiesKilled = 0;
 
     void Start()
     {
+        UpdateEnemyCounterUI();
         StartCoroutine(BeginFirstLevel());
     }
 
     IEnumerator BeginFirstLevel()
     {
-        levelUI.ShowLevel(1); // Show "Level 1" message
-        yield return new WaitForSeconds(3f); // Wait before spawning
-        SpawnWave(); // Spawn wave 1
-        waveNumber++; // Next wave will be wave 2
+        levelUI.ShowLevel(1);
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(SpawnWave(baseEnemiesPerWave));
+        waveNumber++;
         firstWaveDone = true;
     }
 
     void Update()
     {
-        if (!firstWaveDone || currentEnemyCount >= maxEnemies) return;
+        if (!firstWaveDone || currentEnemyCount >= maxActiveEnemies || totalEnemiesSpawned >= maxTotalSpawns)
+            return;
 
         timer += Time.deltaTime;
 
         if (timer >= timeBetweenWaves)
         {
-            SpawnWave();
+            int enemiesToSpawn = waveNumber * baseEnemiesPerWave;
+
+            // Clamp to not exceed limits
+            int remainingToSpawn = maxTotalSpawns - totalEnemiesSpawned;
+            int remainingSlots = maxActiveEnemies - currentEnemyCount;
+            enemiesToSpawn = Mathf.Min(enemiesToSpawn, remainingToSpawn, remainingSlots);
+
+            StartCoroutine(SpawnWave(enemiesToSpawn));
             waveNumber++;
             timer = 0f;
         }
     }
 
-    void SpawnWave()
+    IEnumerator SpawnWave(int count)
     {
-        int enemiesToSpawn = waveNumber * baseEnemiesPerWave;
-
-        // Ensure we don't exceed the max enemy limit
-        if (currentEnemyCount + enemiesToSpawn > maxEnemies)
+        for (int i = 0; i < count; i++)
         {
-            enemiesToSpawn = maxEnemies - currentEnemyCount;  // Adjust to not exceed maxEnemies
-        }
-
-        for (int i = 0; i < enemiesToSpawn; i++)
-        {
-            // Select a random enemy type from the array
             GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
-            // Calculate spawn position
             float distance = Random.Range(minRadius, maxRadius);
             Vector2 direction = Random.insideUnitCircle.normalized;
             Vector2 spawnPos = (Vector2)transform.position + direction * distance;
 
-            // Instantiate the selected enemy
             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-
-            // Increment the enemy count
             currentEnemyCount++;
+            totalEnemiesSpawned++;
+            UpdateEnemyCounterUI();
+
+            yield return new WaitForSeconds(0.5f); // Delay between individual spawns
         }
 
-        Debug.Log($"Wave {waveNumber} spawned: {enemiesToSpawn} enemies");
+        Debug.Log($"Wave {waveNumber} spawned: {count} enemies (Total spawned: {totalEnemiesSpawned})");
     }
 
     void OnDrawGizmosSelected()
@@ -83,5 +89,19 @@ public class EnemySpawner : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, maxRadius);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, minRadius);
+    }
+
+    // Called by enemy when it dies
+    public void OnEnemyDeath()
+    {
+        currentEnemyCount--;
+        enemiesKilled++;
+        UpdateEnemyCounterUI();
+    }
+
+    void UpdateEnemyCounterUI()
+    {
+        int remaining = maxTotalSpawns - enemiesKilled;
+        enemyCounterText.text = $"Enemies Remaining: {remaining}";
     }
 }
