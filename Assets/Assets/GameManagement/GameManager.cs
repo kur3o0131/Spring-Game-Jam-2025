@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        spawnbugs.current_level_static = 1;
         SceneManager.LoadScene("MainMenu"); 
     }
     public void QuitGame()

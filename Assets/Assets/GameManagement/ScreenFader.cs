@@ -9,9 +9,9 @@ public class ScreenFader : MonoBehaviour
 
     void Start()
     {
+        // if user didnt assing a canvas group or a ui group
         if (fadeCanvasGroup == null || uiGroup == null)
         {
-            Debug.LogError("CanvasGroup references not assigned.");
             return;
         }
 

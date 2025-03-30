@@ -195,16 +195,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7df1b53b5e7c71b4bbf3f5fdf1efda1c, type: 2}
-  m_sharedMaterial: {fileID: 6217876156442357942, guid: 7df1b53b5e7c71b4bbf3f5fdf1efda1c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d885d2f210cce604580bd1486205efe2, type: 2}
+  m_sharedMaterial: {fileID: 4695798253890232808, guid: d885d2f210cce604580bd1486205efe2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287006432
-  m_fontColor: {r: 0.8773585, g: 0.5255874, b: 0.5255874, a: 1}
-  m_enableVertexGradient: 1
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
   m_colorMode: 1
   m_fontColorGradient:
     topLeft: {r: 0.18867922, g: 0.15574935, b: 0.15574935, a: 1}
@@ -220,8 +220,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 200
-  m_fontSizeBase: 200
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -343,15 +343,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enemy Counter
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 7df1b53b5e7c71b4bbf3f5fdf1efda1c, type: 2}
-  m_sharedMaterial: {fileID: 6217876156442357942, guid: 7df1b53b5e7c71b4bbf3f5fdf1efda1c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d885d2f210cce604580bd1486205efe2, type: 2}
+  m_sharedMaterial: {fileID: 4695798253890232808, guid: d885d2f210cce604580bd1486205efe2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278848233
-  m_fontColor: {r: 0.9150943, g: 0.038848326, b: 0.038848326, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -368,8 +368,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -54.081177, y: -48.354866, z: -89.71106, w: 0}
+  m_margin: {x: -89.77109, y: -48.354866, z: -89.71106, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6965,7 +6965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b77fcb0af36ef446b411d336b866220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 5483183940682262813, guid: c96b353c1fb2a204db02156081fb9c1f, type: 3}
+  heartPrefab: {fileID: 5441388966349630373, guid: 3fd6554019d13634094288061017d19e, type: 3}
   heartContainer: {fileID: 811811010}
 --- !u!4 &1764703209
 Transform:

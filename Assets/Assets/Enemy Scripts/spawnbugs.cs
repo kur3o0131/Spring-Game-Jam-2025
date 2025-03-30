@@ -105,7 +105,7 @@ public class spawnbugs : MonoBehaviour
     void updatekillcounter()
     {
         int remaining = totalpossiblebugs - enemiesKilled;
-        totalbugsleft.text = $"Enemies Remaining: {remaining}";
+        totalbugsleft.text = $"{remaining} Bugs Remaining";
     }
 
     // just to visually see where bugs can spawn
