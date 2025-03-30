@@ -7,9 +7,15 @@ public abstract class EnemyBase : MonoBehaviour
     protected Transform target;
     protected Rigidbody2D rb;
 
+    [Header("Death Sound")]
+    public AudioClip deathSFX;
+    [Range(0f, 1f)] public float deathVolume = 0.7f;
+    private AudioSource sfxSource;
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sfxSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Start()
@@ -28,7 +34,16 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
+        // play sound before destruction
+        if (sfxSource && deathSFX)
+        {
+            sfxSource.PlayOneShot(deathSFX, deathVolume);
+        }
+
+        // notify spawner
         FindFirstObjectByType<EnemySpawner>()?.OnEnemyDeath();
-        Destroy(gameObject);
+
+        // destroy shortly after to allow sound to play
+        Destroy(gameObject, 0.1f);
     }
 }

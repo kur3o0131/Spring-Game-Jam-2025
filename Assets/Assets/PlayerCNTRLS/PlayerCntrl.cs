@@ -1,9 +1,20 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class PlayerCntrl : MonoBehaviour
 {
+    public AudioSource sfxSource;
+
+    public AudioClip punchSFX;
+    [Range(0f, 1f)] public float punchVolume = 0.5f;
+
+    public AudioClip shootSFX;
+    [Range(0f, 1f)] public float shootVolume = 0.5f;
+
+    public AudioClip damageSFX;
+    [Range(0f, 1f)] public float damageVolume = 0.5f;
+
     public HealthUI healthUI;
     public int maxHearts = 3;
     private int currentHearts;
@@ -17,28 +28,22 @@ public class PlayerCntrl : MonoBehaviour
     bool isWalking = false;
 
     public Animator anim;
-
     public float moveSpeed;
-
     private Rigidbody2D rb;
 
     private float x;
     private float y;
-
     private Vector2 input;
     private bool moving;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHearts = maxHearts;
         healthUI.SetHearts(currentHearts);
         rb = GetComponent<Rigidbody2D>();
         gm = Object.FindFirstObjectByType<GameManager>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetInput();
@@ -49,7 +54,7 @@ public class PlayerCntrl : MonoBehaviour
     {
         rb.linearVelocity = input * moveSpeed;
 
-        if(isWalking)
+        if (isWalking)
         {
             Vector3 vector3 = Vector3.left * x + Vector3.down * y;
             aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
@@ -61,22 +66,14 @@ public class PlayerCntrl : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
 
-        input = new Vector2(x, y);
-        input.Normalize();
+        input = new Vector2(x, y).normalized;
     }
 
     private void Animate()
     {
-        if (input.magnitude > 0.1f)
-        {
-            moving = true;
-            isWalking = true;
-        }
-        else
-        {
-            moving = false;
-            isWalking = false;
-        }
+        moving = input.magnitude > 0.1f;
+        isWalking = moving;
+
         if (moving)
         {
             anim.SetFloat("X", x);
@@ -84,6 +81,7 @@ public class PlayerCntrl : MonoBehaviour
         }
         anim.SetBool("Moving", moving);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -91,6 +89,7 @@ public class PlayerCntrl : MonoBehaviour
             TakeDamage(1);
         }
     }
+
     public void TakeDamage(int damage)
     {
         if (!canTakeDamage) return;
@@ -99,6 +98,9 @@ public class PlayerCntrl : MonoBehaviour
         currentHearts -= damage;
         currentHearts = Mathf.Max(0, currentHearts);
         healthUI.SetHearts(currentHearts);
+
+        if (sfxSource && damageSFX)
+            sfxSource.PlayOneShot(damageSFX, damageVolume);
 
         if (currentHearts <= 0)
         {
@@ -110,8 +112,21 @@ public class PlayerCntrl : MonoBehaviour
             Invoke(nameof(ResetDamageCooldown), damageCooldown);
         }
     }
+
     private void ResetDamageCooldown()
     {
         canTakeDamage = true;
+    }
+
+    public void PlayPunchSound()
+    {
+        if (sfxSource && punchSFX)
+            sfxSource.PlayOneShot(punchSFX, punchVolume);
+    }
+
+    public void PlayShootSound()
+    {
+        if (sfxSource && shootSFX)
+            sfxSource.PlayOneShot(shootSFX, shootVolume);
     }
 }

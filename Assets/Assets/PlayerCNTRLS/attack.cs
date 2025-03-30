@@ -2,19 +2,17 @@ using UnityEngine;
 
 public class attack : MonoBehaviour
 {
-    // melee attack
     public GameObject Melee;
     bool isAttacking = false;
-
     float atkDuration = 0.3f;
     float atkTimer = 0f;
 
-    // ranged attack
     public Transform Aim;
     public GameObject bullet;
     public float fireforce = 10f;
-    float shootCooldown = 0.25f;
-    float shootTimer = 0.5f;
+
+    public float shootCooldown = 0.5f; // cooldown duration
+    private float shootTimer = 0f;
 
     public Animator anim;
 
@@ -26,18 +24,23 @@ public class attack : MonoBehaviour
 
     void Update()
     {
-        RotateAimToMouse(); // <-- new line
+        RotateAimToMouse();
 
         CheckMeleeTimer();
         shootTimer += Time.deltaTime;
 
+        // melee attack
         if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0))
         {
+            GetComponent<PlayerCntrl>()?.PlayPunchSound();
             OnAttack();
         }
 
-        if (Input.GetKeyUp(KeyCode.R) || Input.GetMouseButton(1))
+        // ranged attack (with cooldown)
+        if ((Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(1)) && shootTimer >= shootCooldown)
         {
+            shootTimer = 0f;
+            GetComponent<PlayerCntrl>()?.PlayShootSound();
             onShoot();
         }
     }
@@ -51,34 +54,19 @@ public class attack : MonoBehaviour
 
     void onShoot()
     {
-        if (shootTimer > shootCooldown)
+        Vector3 spawnPos = Aim.position + Aim.up * 0.6f;
+        GameObject intBullet = Instantiate(bullet, spawnPos, Quaternion.identity);
+
+        Rigidbody2D rb = intBullet.GetComponent<Rigidbody2D>();
+        if (rb != null)
         {
-            shootTimer = 0f;
-
-            // Position the bullet slightly in front of the player
-            Vector3 spawnPos = Aim.position + Aim.up * 0.6f;
-            GameObject intBullet = Instantiate(bullet, spawnPos, Quaternion.identity);
-
-            Rigidbody2D rb = intBullet.GetComponent<Rigidbody2D>();
-
-            if (rb != null)
-            {
-                // Set the Rigidbody2D to Kinematic (no physics influence)
-                rb.bodyType = RigidbodyType2D.Kinematic;
-
-                // Get the mouse position in world space
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                // Calculate direction towards the mouse (normalize it so it's a unit vector)
-                Vector2 direction = (mousePos - Aim.position).normalized;
-
-                // Apply the linearVelocity for constant speed
-                rb.linearVelocity = direction * fireforce;
-            }
-
-            // Destroy the bullet after 3 seconds
-            Destroy(intBullet, 3f);
+            rb.bodyType = RigidbodyType2D.Kinematic;
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (mousePos - Aim.position).normalized;
+            rb.linearVelocity = direction * fireforce;
         }
+
+        Destroy(intBullet, 3f);
     }
 
     void OnAttack()
