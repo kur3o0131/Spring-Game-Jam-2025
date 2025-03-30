@@ -18,6 +18,11 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        // reset the level if this is the end scene
+        if (SceneManager.GetActiveScene().name == "end")
+        {
+            spawnbugs.current_level_static = 1;
+        }
         // fading out the menu music when start is clciekd
         if (menuMusic != null)
         {

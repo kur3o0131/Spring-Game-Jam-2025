@@ -46,6 +46,7 @@ public class PlayerCntrl : MonoBehaviour
     void Update()
     {
         GetInput();
+        GetComponent<attack>()?.UpdateFacing(input);
         Animate();
     }
 

@@ -16,6 +16,8 @@ public class attack : MonoBehaviour
 
     public Animator anim;
 
+    private Vector2 playerdirection = Vector2.right;
+
     void Start()
     {
         if (anim == null)
@@ -71,6 +73,7 @@ public class attack : MonoBehaviour
     {
         if (!isAttacking)
         {
+            UpdateMeleePosition();
             Melee.SetActive(true);
             isAttacking = true;
             anim.SetTrigger("Attack");
@@ -89,4 +92,19 @@ public class attack : MonoBehaviour
             }
         }
     }
+    // update the direction of the player 
+    public void UpdateFacing(Vector2 moveInput)
+    {
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            playerdirection = moveInput.normalized;
+        }
+    }
+    // getting the melee attack based on position not mouse
+    void UpdateMeleePosition()
+    {
+        Melee.transform.position = transform.position + (Vector3)(playerdirection * 0.6f);
+        Melee.transform.up = playerdirection;
+    }
+
 }

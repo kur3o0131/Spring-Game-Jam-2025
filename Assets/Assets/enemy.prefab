@@ -86,7 +86,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.92, y: 3.25}
+  m_Size: {x: 3.25, y: 3.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   dyingSFX: {fileID: 8300000, guid: 60470eceb2cb4fd47844d5902ac480e7, type: 3}
-  enemykillsound: 0.015
+  enemykillsound: 0.086
   anim: {fileID: 6358168686284711189}
 --- !u!70 &8388091262995540355
 CapsuleCollider2D:
