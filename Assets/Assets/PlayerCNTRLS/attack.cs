@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class attack : MonoBehaviour
 {
+    // for melee attacks
     public GameObject Melee;
     bool isAttacking = false;
     float atkDuration = 0.3f;
     float atkTimer = 0f;
-
+    // for range attacks
     public Transform Aim;
     public GameObject bullet;
     public float fireforce = 10f;
-
     public float shootCooldown = 0.5f;
     private float shootTimer = 0f;
 
+    // added animator for attack animation, only added for melee
     public Animator anim;
 
+    // getting the players direction
     private Vector2 playerdirection = Vector2.right;
 
     void Start()
@@ -26,6 +28,7 @@ public class attack : MonoBehaviour
 
     void Update()
     {
+        // constantly checking mouse position + whether an input has been made ( left click or right click) 
         RotateAimToMouse();
         CheckMeleeTimer();
         shootTimer += Time.deltaTime;
@@ -48,29 +51,31 @@ public class attack : MonoBehaviour
 
     void RotateAimToMouse()
     {
+        // get the mouse position and direction to aim
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = (mousePos - Aim.position).normalized;
         Aim.up = direction;
     }
-
     void onShoot()
     {
+        // using the mouse position we receive to spawn the bullet in that direction
         Vector3 spawnPos = Aim.position + Aim.up * 0.6f;
         GameObject intBullet = Instantiate(bullet, spawnPos, Quaternion.identity);
 
         Rigidbody2D rb = intBullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;
+            // applying force to the bullet to move towards the mouse at its current position
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = (mousePos - Aim.position).normalized;
             rb.linearVelocity = direction * fireforce;
         }
-
+        // destroy teh bullet after 3 seconds no matter wat
         Destroy(intBullet, 3f);
     }
     void OnAttack()
     {
+        // triggering the animation and activting an attack using the melee position
         if (!isAttacking)
         {
             UpdateMeleePosition();
@@ -83,6 +88,7 @@ public class attack : MonoBehaviour
     {
         if (isAttacking)
         {
+            // uses real time to check how long the attack has been active
             atkTimer += Time.deltaTime;
             if (atkTimer >= atkDuration)
             {

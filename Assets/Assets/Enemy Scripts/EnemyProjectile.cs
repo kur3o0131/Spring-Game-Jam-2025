@@ -11,18 +11,15 @@ public class Projectile : MonoBehaviour
     {
         this.direction = direction.normalized;
     }
-
     void Start()
     {
         // destroy the projectile after 3 seconds no matter what
         Destroy(gameObject, 3f);
     }
-
     void Update()
     {
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // destroy the projectile if it hits a boundary

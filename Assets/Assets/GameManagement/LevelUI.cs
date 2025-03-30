@@ -4,8 +4,9 @@ using System.Collections;
 
 public class LevelUI : MonoBehaviour
 {
-    // level text
+    // instantiate the tmp text object for the level
     public TMP_Text levelText;
+    // how long the level text will be displayed
     public float displayTime = 3f;
     public float fadeDuration = 1f;
     private CanvasGroup canvasGroup;

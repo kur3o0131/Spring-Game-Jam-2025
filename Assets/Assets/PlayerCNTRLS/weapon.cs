@@ -4,14 +4,12 @@ public class weapon : MonoBehaviour
 {
     // set the damage for the weapon
     public float damage = 1;
-
     // providing the weapon choices
     public enum WeaponType
     {
         Melee,
         Bullet
     }
-
     // set the weapon type for player
     public WeaponType weaponType;
 
@@ -30,7 +28,6 @@ public class weapon : MonoBehaviour
             }
             return;
         }
-
         // bullets also need to be destroyed when they hit the boundary
         if (weaponType == WeaponType.Bullet && collision.CompareTag("Boundary"))
         {
