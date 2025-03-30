@@ -4,11 +4,12 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
-    public ScreenFader screenFader;     // Reference to the ScreenFader script
-    public AudioSource menuMusic;       // Drag your AudioSource (with music) here
+    public ScreenFader screenFader;   
+    public AudioSource menuMusic;  
 
     void Start()
     {
+        // set the menu music volume low cuz its loud super loud by default
         if (menuMusic != null)
         {
             menuMusic.volume = 0.05f;
@@ -17,13 +18,12 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        // fading out the menu music when start is clciekd
         if (menuMusic != null)
         {
-            menuMusic.volume = 0.03f; // Set initial volume
-            StartCoroutine(FadeOutMusic(menuMusic, 3f, 0f)); // Fade to 0 over 1 second
+            menuMusic.volume = 0.03f;
+            StartCoroutine(FadeOutMusic(menuMusic, 3f, 0f));
         }
-
-        // Start the fade out effect before switching scenes
         StartCoroutine(FadeOutAndLoad());
     }
 
@@ -34,8 +34,9 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator FadeOutAndLoad()
     {
+        // load in the next scene after fading out
         yield return StartCoroutine(screenFader.FadeOut());
-        SceneManager.LoadScene("level1"); // Replace with your actual game scene name
+        SceneManager.LoadScene("level1");
     }
 
     private IEnumerator FadeOutMusic(AudioSource source, float duration, float targetVolume = 0f)

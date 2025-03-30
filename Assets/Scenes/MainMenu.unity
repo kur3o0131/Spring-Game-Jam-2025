@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: 67b3ad4947b89b04b8cf5083a9d0d4c9, type: 3}
-  sfxSource: {fileID: 108068803}
+  sfxsource: {fileID: 108068803}
 --- !u!1 &759988979
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +656,7 @@ Transform:
   m_GameObject: {fileID: 759988979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 421.00317, y: 323.72604, z: -5.018903}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: 67b3ad4947b89b04b8cf5083a9d0d4c9, type: 3}
-  sfxSource: {fileID: 108068803}
+  sfxsource: {fileID: 108068803}
 --- !u!1 &2017387533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7bec45ae4042c4b8b59864893caee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeGroup: {fileID: 1637961499}
+  fadeCanvasGroup: {fileID: 1637961499}
   uiGroup: {fileID: 1001225853}
   fadeDuration: 1
 --- !u!4 &2017387535

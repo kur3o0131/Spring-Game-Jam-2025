@@ -11,7 +11,7 @@ public class attack : MonoBehaviour
     public GameObject bullet;
     public float fireforce = 10f;
 
-    public float shootCooldown = 0.5f; // cooldown duration
+    public float shootCooldown = 0.5f;
     private float shootTimer = 0f;
 
     public Animator anim;
@@ -25,7 +25,6 @@ public class attack : MonoBehaviour
     void Update()
     {
         RotateAimToMouse();
-
         CheckMeleeTimer();
         shootTimer += Time.deltaTime;
 
@@ -68,7 +67,6 @@ public class attack : MonoBehaviour
 
         Destroy(intBullet, 3f);
     }
-
     void OnAttack()
     {
         if (!isAttacking)
@@ -78,7 +76,6 @@ public class attack : MonoBehaviour
             anim.SetTrigger("Attack");
         }
     }
-
     void CheckMeleeTimer()
     {
         if (isAttacking)

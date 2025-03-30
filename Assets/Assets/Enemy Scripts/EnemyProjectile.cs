@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    // set a speed for the projectile and how much damage it will do
     public float speed = 10f;
     public float damage = 1f;
+    // also create vector for the direction of the projectile will go
     private Vector2 direction;
-
-    public void SetDirection(Vector2 dir)
+    public void SetDirection(Vector2 direction)
     {
-        direction = dir.normalized;
+        this.direction = direction.normalized;
     }
 
     void Start()
     {
-        // Auto-destroy after 3 seconds
+        // destroy the projectile after 3 seconds no matter what
         Destroy(gameObject, 3f);
     }
 
@@ -24,17 +25,18 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If projectile hits a boundary (by tag or layer), destroy it
+        // destroy the projectile if it hits a boundary
         if (collision.CompareTag("Boundary") || collision.gameObject.layer == LayerMask.NameToLayer("Boundary"))
         {
             Destroy(gameObject);
             return;
         }
 
-        // Don't hurt enemies (including the one that fired it)
-        if (collision.GetComponent<EnemyBase>())
+        // ignore bullets that go thru other enemies
+        if (collision.GetComponent<EnemyClass>())
             return;
 
+        // make the player take damage if the projectile hits the player
         if (collision.CompareTag("Player"))
         {
             PlayerCntrl player = collision.GetComponent<PlayerCntrl>();
@@ -42,11 +44,6 @@ public class Projectile : MonoBehaviour
             {
                 player.TakeDamage(1);
             }
-            Destroy(gameObject);
-        }
-
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
-        {
             Destroy(gameObject);
         }
     }

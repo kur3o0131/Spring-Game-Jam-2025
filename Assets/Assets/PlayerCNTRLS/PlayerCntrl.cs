@@ -4,18 +4,17 @@ using UnityEngine.Tilemaps;
 
 public class PlayerCntrl : MonoBehaviour
 {
-    public AudioSource sfxSource;
-
+    public AudioSource sfxsource;
     public AudioClip punchSFX;
     [Range(0f, 1f)] public float punchVolume = 0.5f;
-
     public AudioClip shootSFX;
     [Range(0f, 1f)] public float shootVolume = 0.5f;
-
     public AudioClip damageSFX;
     [Range(0f, 1f)] public float damageVolume = 0.5f;
 
+    // referce to the ui for hp
     public HealthUI healthUI;
+    // player has 3 hearts
     public int maxHearts = 3;
     private int currentHearts;
 
@@ -99,8 +98,8 @@ public class PlayerCntrl : MonoBehaviour
         currentHearts = Mathf.Max(0, currentHearts);
         healthUI.SetHearts(currentHearts);
 
-        if (sfxSource && damageSFX)
-            sfxSource.PlayOneShot(damageSFX, damageVolume);
+        if (sfxsource && damageSFX)
+            sfxsource.PlayOneShot(damageSFX, damageVolume);
 
         if (currentHearts <= 0)
         {
@@ -112,21 +111,19 @@ public class PlayerCntrl : MonoBehaviour
             Invoke(nameof(ResetDamageCooldown), damageCooldown);
         }
     }
-
     private void ResetDamageCooldown()
     {
         canTakeDamage = true;
     }
-
+    // playing sounds according to weapon and volume
     public void PlayPunchSound()
     {
-        if (sfxSource && punchSFX)
-            sfxSource.PlayOneShot(punchSFX, punchVolume);
+        if (sfxsource && punchSFX)
+            sfxsource.PlayOneShot(punchSFX, punchVolume);
     }
-
     public void PlayShootSound()
     {
-        if (sfxSource && shootSFX)
-            sfxSource.PlayOneShot(shootSFX, shootVolume);
+        if (sfxsource && shootSFX)
+            sfxsource.PlayOneShot(shootSFX, shootVolume);
     }
 }

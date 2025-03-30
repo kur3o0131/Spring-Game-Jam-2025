@@ -3,14 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(EdgeCollider2D))]
 public class CircleBoundary : MonoBehaviour
 {
-    public int segments = 64;  // More segments = smoother circle
-    public float radius = 10f; // Desired boundary radius
+    public int segments = 64; 
+    public float radius = 10f; 
 
     void Start()
     {
         GenerateCircle();
     }
-
+    // using the edgecolloider and making it a circle
     void GenerateCircle()
     {
         EdgeCollider2D edge = GetComponent<EdgeCollider2D>();
@@ -23,10 +23,9 @@ public class CircleBoundary : MonoBehaviour
         }
         edge.points = points;
     }
-
+    // show the visible circle boundary
     private void OnDrawGizmos()
     {
-        // Draw a green wireframe circle in Scene view
         Gizmos.color = Color.green;
         Vector3 center = transform.position;
         Vector3 previousPoint = center + new Vector3(radius, 0, 0);

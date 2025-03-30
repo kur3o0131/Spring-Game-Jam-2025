@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     {
         canvasGroup = gameOverScreen.GetComponent<CanvasGroup>();
     }
-
     public void GameOver()
     {
         Debug.Log("GAME OVER");
@@ -23,25 +22,20 @@ public class GameManager : MonoBehaviour
             StartCoroutine(FadeIn());
         }
     }
-
     public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu"); 
     }
-
     public void QuitGame()
     {
         Application.Quit();
     }
-
-    // Coroutine for fade-in effect
+    // routine for fade effect when game over
     IEnumerator FadeIn()
     {
         float elapsedTime = 0f;
         float fadeDuration = 2f;
-
-        
         canvasGroup.alpha = 0;
         while (elapsedTime < fadeDuration)
         {
