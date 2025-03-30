@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         if (menuMusic != null)
         {
-            menuMusic.volume = 0.1f;
+            menuMusic.volume = 0.05f;
         }
     }
 

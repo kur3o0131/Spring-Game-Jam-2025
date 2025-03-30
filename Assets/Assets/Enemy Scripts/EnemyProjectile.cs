@@ -24,8 +24,16 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // If projectile hits a boundary (by tag or layer), destroy it
+        if (collision.CompareTag("Boundary") || collision.gameObject.layer == LayerMask.NameToLayer("Boundary"))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         // Don't hurt enemies (including the one that fired it)
-        if (collision.GetComponent<EnemyBase>()) return;
+        if (collision.GetComponent<EnemyBase>())
+            return;
 
         if (collision.CompareTag("Player"))
         {

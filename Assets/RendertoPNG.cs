@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
 using System.Collections;
 
@@ -18,7 +18,7 @@ public class RenderToPNG : MonoBehaviour
 
     IEnumerator CaptureAfterFrame()
     {
-        // wait one frame so camera has time to render
+        // wait one frame so camera finishes rendering
         yield return new WaitForEndOfFrame();
 
         SaveRenderTextureToPNG();
@@ -26,12 +26,37 @@ public class RenderToPNG : MonoBehaviour
 
     void SaveRenderTextureToPNG()
     {
+        if (renderTexture == null)
+        {
+            Debug.LogError("RenderTexture is not assigned.");
+            return;
+        }
+
         RenderTexture currentRT = RenderTexture.active;
         RenderTexture.active = renderTexture;
 
-        Texture2D tex = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGB24, false);
-        tex.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
+        int width = renderTexture.width;
+        int height = renderTexture.height;
+
+        Debug.Log($"Capturing render texture at {width}x{height}");
+
+        Texture2D tex = new Texture2D(width, height, TextureFormat.RGB24, false);
+        tex.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         tex.Apply();
+
+        // 🔆 apply gamma correction for Linear color space
+        if (QualitySettings.activeColorSpace == ColorSpace.Linear)
+        {
+            Color[] pixels = tex.GetPixels();
+            for (int i = 0; i < pixels.Length; i++)
+            {
+                pixels[i].r = Mathf.Pow(pixels[i].r, 1f / 2.2f);
+                pixels[i].g = Mathf.Pow(pixels[i].g, 1f / 2.2f);
+                pixels[i].b = Mathf.Pow(pixels[i].b, 1f / 2.2f);
+            }
+            tex.SetPixels(pixels);
+            tex.Apply();
+        }
 
         byte[] bytes = tex.EncodeToPNG();
         File.WriteAllBytes(outputPath, bytes);

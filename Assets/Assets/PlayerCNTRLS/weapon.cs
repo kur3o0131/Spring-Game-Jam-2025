@@ -14,6 +14,7 @@ public class weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Check for enemy collision first
         EnemyBase enemy = collision.GetComponent<EnemyBase>();
         if (enemy != null)
         {
@@ -23,6 +24,13 @@ public class weapon : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            return;
+        }
+
+        // If it's a bullet, also destroy it if it hits a boundary
+        if (weaponType == WeaponType.Bullet && collision.CompareTag("Boundary"))
+        {
+            Destroy(gameObject);
         }
     }
 }
