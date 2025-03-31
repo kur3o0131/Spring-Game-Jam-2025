@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 5355a4291ed041840bb4bc1595a548ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2373421668655660012
+    second: playexit_0
+  - first:
+      213: -2526336571354747208
+    second: playexit_1
+  - first:
+      213: 7211145907564638462
+    second: playexit_2
+  - first:
+      213: 2955789445705637679
+    second: playexit_3
+  - first:
+      213: 2778304376085344451
+    second: playexit_4
+  - first:
+      213: 7232587186792463716
+    second: playexit_5
+  - first:
+      213: -3837563829732393812
+    second: playexit_6
+  - first:
+      213: -1896317992808118167
+    second: playexit_7
+  - first:
+      213: -3965899689376473548
+    second: playexit_8
+  - first:
+      213: -9073185594408326578
+    second: playexit_9
+  - first:
+      213: -2256488307500892266
+    second: playexit_10
+  - first:
+      213: -3539102253073341208
+    second: playexit_11
+  - first:
+      213: -8947887194635279896
+    second: playexit_12
+  - first:
+      213: -6498879241991769897
+    second: playexit_13
+  - first:
+      213: 4617852802399034860
+    second: playexit_14
+  - first:
+      213: -8692736788348258554
+    second: playexit_15
+  - first:
+      213: 5417396007634231444
+    second: playexit_16
+  - first:
+      213: 865369055006541829
+    second: playexit_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: playexit_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 847
+        width: 110
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41480993199ef0fd0800000000000000
+      internalID: -2373421668655660012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 842
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be62510646a0fcd0800000000000000
+      internalID: -2526336571354747208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 217
+        width: 3939
+        height: 1561
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0f6e32ff2231460800000000000000
+      internalID: 7211145907564638462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_3
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 144
+        width: 85
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f122627d2150920800000000000000
+      internalID: 2955789445705637679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_4
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 138
+        width: 134
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0fa762c158e8620800000000000000
+      internalID: 2778304376085344451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_5
+      rect:
+        serializedVersion: 2
+        x: 2563
+        y: 116
+        width: 40
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d7ecbf9bf4f5460800000000000000
+      internalID: 7232587186792463716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_6
+      rect:
+        serializedVersion: 2
+        x: 2603
+        y: 118
+        width: 58
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cacb9e5770c3ebac0800000000000000
+      internalID: -3837563829732393812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_7
+      rect:
+        serializedVersion: 2
+        x: 2659
+        y: 116
+        width: 46
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9688d7925dceea5e0800000000000000
+      internalID: -1896317992808118167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_8
+      rect:
+        serializedVersion: 2
+        x: 2716
+        y: 116
+        width: 47
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e12e7ae3b46f8c0800000000000000
+      internalID: -3965899689376473548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_9
+      rect:
+        serializedVersion: 2
+        x: 2761
+        y: 114
+        width: 94
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4aa91016c1951280800000000000000
+      internalID: -9073185594408326578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_10
+      rect:
+        serializedVersion: 2
+        x: 2854
+        y: 114
+        width: 85
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f3697f6d75fa0e0800000000000000
+      internalID: -2256488307500892266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_11
+      rect:
+        serializedVersion: 2
+        x: 2939
+        y: 121
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e467c5704592eec0800000000000000
+      internalID: -3539102253073341208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_12
+      rect:
+        serializedVersion: 2
+        x: 2948
+        y: 121
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e16f712108b2d380800000000000000
+      internalID: -8947887194635279896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_13
+      rect:
+        serializedVersion: 2
+        x: 2954
+        y: 113
+        width: 66
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0bbee03c75fc5a0800000000000000
+      internalID: -6498879241991769897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_14
+      rect:
+        serializedVersion: 2
+        x: 3020
+        y: 121
+        width: 68
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced590848a8e51040800000000000000
+      internalID: 4617852802399034860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_15
+      rect:
+        serializedVersion: 2
+        x: 2233
+        y: 100
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607388472f13d5780800000000000000
+      internalID: -8692736788348258554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_16
+      rect:
+        serializedVersion: 2
+        x: 2258
+        y: 89
+        width: 136
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49068a267f47e2b40800000000000000
+      internalID: 5417396007634231444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playexit_17
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 95
+        width: 55
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 508c7431298620c00800000000000000
+      internalID: 865369055006541829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      playexit_0: -2373421668655660012
+      playexit_1: -2526336571354747208
+      playexit_10: -2256488307500892266
+      playexit_11: -3539102253073341208
+      playexit_12: -8947887194635279896
+      playexit_13: -6498879241991769897
+      playexit_14: 4617852802399034860
+      playexit_15: -8692736788348258554
+      playexit_16: 5417396007634231444
+      playexit_17: 865369055006541829
+      playexit_2: 7211145907564638462
+      playexit_3: 2955789445705637679
+      playexit_4: 2778304376085344451
+      playexit_5: 7232587186792463716
+      playexit_6: -3837563829732393812
+      playexit_7: -1896317992808118167
+      playexit_8: -3965899689376473548
+      playexit_9: -9073185594408326578
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

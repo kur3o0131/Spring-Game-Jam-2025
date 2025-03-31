@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 4cec83f42bc79bd42a20eb51b7c85c3e
+guid: b41325389cdd6254a96897f428f94164
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2168809666156439075
-    second: bug2_right_0
-  - first:
-      213: -7381685150932750168
-    second: bug2_right_1
-  - first:
-      213: 3626459659459740031
-    second: bug2_right_2
+      213: 8785927722040690476
+    second: Unicycle scene_1024x1024_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -119,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bug2_right_0
+      name: Unicycle scene_1024x1024_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 27
-        width: 390
-        height: 326
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32620b886e8291e10800000000000000
-      internalID: 2168809666156439075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bug2_right_1
-      rect:
-        serializedVersion: 2
-        x: 283
-        y: 349
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8a0b0ee077cfe8990800000000000000
-      internalID: -7381685150932750168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bug2_right_2
-      rect:
-        serializedVersion: 2
-        x: 290
-        y: 351
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f71c162b8d5c35230800000000000000
-      internalID: 3626459659459740031
+      spriteID: c270e7e96b2ede970800000000000000
+      internalID: 8785927722040690476
       vertices: []
       indices: 
       edges: []
@@ -188,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bug2_right_0: 2168809666156439075
-      bug2_right_1: -7381685150932750168
-      bug2_right_2: 3626459659459740031
+      Unicycle scene_1024x1024_0: 8785927722040690476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
