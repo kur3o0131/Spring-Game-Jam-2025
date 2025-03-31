@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    // animtor for the projectile
+    public Animator anim;
+
     // set a speed for the projectile and how much damage it will do
     public float speed = 10f;
     public float damage = 1f;
@@ -15,6 +18,9 @@ public class Projectile : MonoBehaviour
     {
         // destroy the projectile after 3 seconds no matter what
         Destroy(gameObject, 3f);
+        // if the animator is null, get the animator component
+        if (anim == null)
+            anim = GetComponent<Animator>();
     }
     void Update()
     {
